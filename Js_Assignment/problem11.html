@@ -27,8 +27,43 @@
     <li><a href="Js_Assignment/problem15.html">Problem 15 </a></li>
 
   </ol>
+  //problem no 11
   <script>
+    function freqSorting(numArr, freqArr) {
+      let m = -1
+      let ind = -1
+      for (i = 0; i < freqArr.length; i++) {
+        if (m < freqArr[i]) {
+          m = freqArr[i]
+          ind = i
+        }
+      }
+      console.log(numArr[ind])
+      freqArr.splice(ind, 1)
+      numArr.splice(ind, 1)
+    }
 
+    let arr = [1, 2, 2, 2, 3, 4, 2, 1, 4, 1]
+    let n = 10
+    let numArr = []
+    let freqArr = []
+    for (i = 0; i < n; i++) {
+      count = 0
+      if (numArr.indexOf(arr[i]) == -1) {
+        numArr.push(arr[i])
+        count = 1
+        for (j = i + 1; j < n; j++) {
+          if (arr[j] == arr[i]) {
+            count = count + 1
+          }
+        }
+        freqArr.push(count)
+      }
+    }
+    console.log(numArr, freqArr)
+    while (numArr.length > 0) {
+      freqSorting(numArr, freqArr)
+    }
   </script>
 </body>
 
